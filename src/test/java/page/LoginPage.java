@@ -11,25 +11,31 @@ public class LoginPage extends BasePage {
     String email = "testhilaltest@gmail.com";
     String password = "testhilal34";
     String username = "hilalyilmaz261558";
-    String actualTitle;
+    By emailElement=By.id("L-UserNameField");
+    By passElement= By.id("L-PasswordField");
 
     public void openLoginPage() {
+        waitSeconds(2);
         WebElement wrapperClick = findByElement(By.className("afterLoginURL"));
         WebElement buttonClick = findByElement(By.xpath("//*[@id=\"SignIn\"]"));
-
-        if (wrapperClick.isEnabled()) {
+        if (wrapperClick.isDisplayed()) {
             mouseOn(wrapperClick);
             waitSeconds(4);
-            buttonClick.click();
-            logMessage(buttonClick.getText()+" butonuna tıklandı.");
-            waitSeconds(6);
+            isDisplayedElement(buttonClick);
+            waitSeconds(3);
         }
     }
 
     public void login() {
-        loginInfo();
-        waitSeconds(4);
-        checkTrueUser();
+        try {
+            loginInfo();
+            waitSeconds(3);
+            checkTrueUser();
+        }
+        catch (Exception ex){
+            logMessage(ex.getMessage());
+        }
+
     }
 
     public void checkTrueUser() {
@@ -38,13 +44,16 @@ public class LoginPage extends BasePage {
     }
 
     public void loginInfo() {
-        sendKeyElement(By.id("L-UserNameField"), email);
         waitSeconds(2);
-        sendKeyElement(By.id("L-PasswordField"), password);
-        waitSeconds(2);
-        WebElement buttonLogin=findByElement(By.id("gg-login-enter"));
-        clickJavaScript(buttonLogin);
-        waitSeconds(2);
+        if(findByElement(emailElement).isEnabled()){
+            sendKeyElement(emailElement, email);
+            waitSeconds(2);
+            sendKeyElement(passElement, password);
+            waitSeconds(2);
+            WebElement buttonLogin = findByElement(By.id("gg-login-enter"));
+            clickJavaScript(buttonLogin);
+            waitSeconds(2);
+        }
     }
 
 }

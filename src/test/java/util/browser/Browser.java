@@ -3,7 +3,6 @@ package util.browser;
 import base.BaseTest;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.Cookie;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -29,6 +28,8 @@ public class Browser {
         chromeOptions.addArguments("disable-translate");
         //Browser tam ekranda gösterilir.
         chromeOptions.addArguments("start-maximized");
+        //Pop-uplar bloklanır.
+        chromeOptions.addArguments("disable-popup-blocking");
         chromeOptions.setPageLoadStrategy(PageLoadStrategy.NONE);
         capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
         //Driver'ımızı setliyoruz.

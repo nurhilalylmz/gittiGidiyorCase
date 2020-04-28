@@ -31,7 +31,6 @@ public class BasePage {
     }
 
     protected void controlURL(String expectingUrl) {
-        waitSeconds(3);
         if (driver.getCurrentUrl().contentEquals(expectingUrl)) {
             System.out.println("URL bilgisi doğru: " + expectingUrl);
         } else {
@@ -68,9 +67,20 @@ public class BasePage {
         //Elemente tıklanır.
         jse.executeScript("arguments[0].click();",element);
     }
+    protected void isEnabledElement(WebElement element){
+        if(element.isEnabled()){
+            mouseClick(element);
+        }
+    }
+
+    protected void isDisplayedElement(WebElement element){
+        if(element.isDisplayed()){
+            logMessage(element.getText()+ "'ine tıklandı");
+            element.click();
+        }
+    }
 
     protected void checkTrue(String expecting, String actual) {
-        waitSeconds(2);
         if (actual.equals(expecting)) {
             logMessage("Olunan : " + actual + ", Beklenen : " + expecting);
         } else {

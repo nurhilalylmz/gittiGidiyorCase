@@ -1,7 +1,6 @@
 package test;
 
 import base.BaseTest;
-import org.apache.logging.log4j.core.config.Order;
 import org.junit.Test;
 import page.BasketPage;
 import page.LoginPage;
