@@ -9,15 +9,10 @@ public class BasketPage extends BasePage {
 
     public void gotoBasket() {
         try {
-            WebElement wrapperBasket = findByElement(By.className("header-cart-hidden-link"));
-            WebElement gotoBasket=findByElement(By.xpath("//a[@href=\"https://www.gittigidiyor.com/sepetim\"]"));
-            if (wrapperBasket.isDisplayed()) {
-//                mouseOn(wrapperBasket);
-//                waitSeconds(4);
-//                scrollPage(gotoBasket);
-                isDisplayedElement(gotoBasket);
-                waitSeconds(3);
-            }
+            WebElement wrapperBasket = findByElement(By.className("dIB"));
+            WebElement gotoBasket=findByElement(By.xpath("//*[@id=\"header_wrapper\"]/div[4]/div[3]/div/div/div/div[2]/div[4]/div[1]/a"));
+            hoverElement(wrapperBasket,gotoBasket);
+            waitSeconds(3);
             checkOrder();
         }catch (Exception ex){
             ex.printStackTrace();

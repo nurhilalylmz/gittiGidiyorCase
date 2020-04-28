@@ -106,4 +106,12 @@ public class BasePage {
         action.moveToElement(element).click().build().perform();
         logMessage(element.getText() + " e tıklandı.");
     }
+    protected void hoverElement(WebElement wrapper,WebElement buttonClick){
+        if (wrapper.isDisplayed()) {
+            mouseOn(wrapper);
+            waitSeconds(4);
+            scrollPage(buttonClick);
+            isDisplayedElement(buttonClick);
+        }
+    }
 }

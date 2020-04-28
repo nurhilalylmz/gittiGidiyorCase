@@ -18,12 +18,8 @@ public class LoginPage extends BasePage {
         waitSeconds(2);
         WebElement wrapperClick = findByElement(By.className("afterLoginURL"));
         WebElement buttonClick = findByElement(By.xpath("//*[@id=\"SignIn\"]"));
-        if (wrapperClick.isDisplayed()) {
-            mouseOn(wrapperClick);
-            waitSeconds(4);
-            isDisplayedElement(buttonClick);
-            waitSeconds(3);
-        }
+        hoverElement(wrapperClick,buttonClick);
+        waitSeconds(3);
     }
 
     public void login() {
