@@ -8,9 +8,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
 public class LoginPage extends BasePage {
-    String email = "testhilaltest@gmail.com";
-    String password = "testhilal34";
-    String username = "hilalyilmaz261558";
+    String email = "";
+    String password = "";
+    String username = "";
     By emailElement=By.id("L-UserNameField");
     By passElement= By.id("L-PasswordField");
 
